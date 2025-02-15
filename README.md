@@ -60,12 +60,12 @@ Create a `.env` file for local development:(just change .env.example to .env)
 
 ```env
 # Local Development(only for local development)
-DB_PROD_URL=postgresql://user:password@localhost:5432/prod_db
-DB_STAGE_URL=postgresql://user:password@localhost:5432/stage_db
-DB_PROD_NAME=production
-DB_STAGE_NAME=staging
+DB_PROD_URL=postgresql://myuser:mypassword@localhost:5432/prod_db
+DB_STAGE_URL=postgresql://myuser:mypassword@localhost:5433/stage_db
+DB_PROD_NAME=prod_db
+DB_STAGE_NAME=stage_db
 
-CONFIG_PATH="table_config.yaml"
+CONFIG_PATH="netflix.yaml"
 ```
 
 ### Table Configuration
