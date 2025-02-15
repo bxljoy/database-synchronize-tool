@@ -14,10 +14,16 @@ A Python service that synchronizes data between production and staging databases
 
 ## Prerequisites
 
+for local development:
+
 - Python 3.11+
+- Docker
+- pip or pip3
 - Pipenv
-- PostgreSQL
-- GCP Cloud SQL (for production)
+
+for GCP:
+
+- GCP Cloud SQL (for database)
 - GCP Cloud Run (for deployment)
 - GCP Storage (for bucket sync)
 
@@ -27,7 +33,7 @@ A Python service that synchronizes data between production and staging databases
 
 ```bash
 git clone <repository-url>
-cd sync-prod-with-stage
+cd database-synchronize-tool/db-sync-local
 ```
 
 2. Install dependencies using Pipenv:
