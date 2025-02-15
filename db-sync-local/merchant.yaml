@@ -1,0 +1,49 @@
+tables:
+  consignment_mapping:
+    sync_config:
+      check_column: consignment_mapping_id
+      check_type: id
+      ignore_columns:
+        - nullable_column
+
+  organizations:
+    sync_config:
+      check_column: org_id
+      check_type: id
+      ignore_columns:
+        - nullable_column
+
+  merchants:
+    sync_config:
+      check_column: merchant_id
+      check_type: id
+      ignore_columns:
+        - nullable_column
+
+  users:
+    sync_config:
+      check_column: updated
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column
+
+  user_access:
+    sync_config:
+      check_column: updated
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column
+
+  invitations:
+    sync_config:
+      check_column: created_at
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column
+      
+  storage_order:
+    sync_config:
+      check_column: storage_order_id
+      check_type: id
+      ignore_columns:
+        - nullable_column

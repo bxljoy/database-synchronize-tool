@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+sqlalchemy = "*"
+pandas = "*"
+pyodbc = "*"
+psycopg2-binary = "*"
+schedule = "*"
+pyyaml = "*"
+python-dotenv = "*"
+cloud-sql-python-connector = {version = "*", extras = ["pg8000"]}
+pg8000 = "*"
+google-cloud-storage = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

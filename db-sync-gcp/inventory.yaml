@@ -1,0 +1,51 @@
+tables:
+  prat_variant_inventories_daily_snapshots:
+    sync_config:
+      check_column: snapshot_date
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column
+        # - metadata
+        # - display_name
+        # - sku
+
+  multi_sales_channel_items:
+    sync_config:
+      check_column: multi_sales_channel_item_id
+      check_type: id
+
+  multi_sales_channel_variant_mappings:
+    sync_config:
+      check_column: multi_sales_channel_variant_mapping_id
+      check_type: id
+
+  variant_mappings:
+    sync_config:
+      check_column: variant_mapping_id
+      check_type: id
+
+  storage_order_lines:
+    sync_config:
+      check_column: storage_order_line_id
+      check_type: id
+      ignore_columns:
+        - nullable_column
+        # - weight
+        # - length
+        # - width
+        # - height
+
+  inventory:
+    sync_config:
+      check_column: created
+      check_type: timestamp
+
+  variants:
+    sync_config:
+      check_column: id
+      check_type: id
+
+  inventory_levels:
+    sync_config:
+      check_column: id
+      check_type: id

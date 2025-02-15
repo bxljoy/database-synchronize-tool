@@ -1,0 +1,14 @@
+tables:
+  customer_order:
+    sync_config:
+      check_column: createddate
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column
+
+  order_update:
+    sync_config:
+      check_column: createddate
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column
