@@ -1,0 +1,32 @@
+services:
+  postgres-prod:
+    image: postgres:latest
+    container_name: postgres-prod
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: prod_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./data:/docker-entrypoint-initdb.d
+
+  postgres-stage:
+    image: postgres:latest
+    container_name: postgres-stage
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: stage_db
+    ports:
+      - "5433:5432" # Different port
+    volumes:
+      - pgdata_stage:/var/lib/postgresql/data
+      - ./schema:/docker-entrypoint-initdb.d
+
+volumes:
+  pgdata:
+  pgdata_stage:

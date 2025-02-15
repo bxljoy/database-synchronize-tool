@@ -1,0 +1,7 @@
+tables:
+  netflix_shows:
+    sync_config:
+      check_column: date_added
+      check_type: timestamp
+      ignore_columns:
+        - nullable_column

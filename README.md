@@ -32,13 +32,23 @@ for GCP:
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd database-synchronize-tool/db-sync-local
+git clone https://github.com/bxljoy/database-synchronize-tool.git
+cd database-synchronize-tool
 ```
 
-2. Install dependencies using Pipenv:
+2. set up databases by docker compose:
 
 ```bash
+docker compose up -d
+```
+
+3. Install pipenv and dependencies:
+
+```bash
+brew install pipenv
+
+cd db-sync-local
+
 pipenv install
 ```
 
@@ -46,7 +56,7 @@ pipenv install
 
 ### Environment Variables
 
-Create a `.env` file for local development:
+Create a `.env` file for local development:(just change .env.example to .env)
 
 ```env
 # Local Development(only for local development)
@@ -56,18 +66,11 @@ DB_PROD_NAME=production
 DB_STAGE_NAME=staging
 
 CONFIG_PATH="table_config.yaml"
-
-# GCP Cloud Storage (for bucket sync)
-SOURCE_GCS_BUCKET=source-bucket-name
-DEST_GCS_BUCKET=destination-bucket-name
-
-# GCP Cloud Run (required for production)
-PROD_INSTANCE_CONNECTION_NAME_EXAMPLE="project:region:instance"
 ```
 
 ### Table Configuration
 
-Configure tables for synchronization in YAML files:
+Configure tables for synchronization in YAML files:(netflix.yaml is an example, just use it)
 
 ```yaml
 tables:
@@ -81,9 +84,7 @@ tables:
 
 Available example configuration files:
 
-- `order.yaml`: Order-related tables
-- `inventory.yaml`: Inventory-related tables
-- `merchant.yaml`: Merchant-related tables
+- `netflix.yaml`: Netflix-related tables
 
 ## Usage
 
@@ -101,13 +102,9 @@ pipenv shell
 python main.py
 ```
 
-3. Run the GCS bucket sync:
+3. check the result in the database
 
-```bash
-python gcs_sync.py
-```
-
-### Production Deployment (Cloud Run)
+### GCP Production Deployment (Cloud Run)
 
 1. Build, Push and Deploy to Cloud Run Jobs:
 
@@ -147,12 +144,11 @@ The sync process will:
 3. Copy only new or modified files
 4. Provide statistics about total, synced, and skipped files
 
-## Additional Notes: how to add more database pairs
+## Adding New Database Pairs
 
 1. Add a new PROD_INSTANCE_CONNECTION_NAME_EXAMPLE="project:region:instance" to the .env file.
 2. Create a new `table_config.yaml` file for the new database pair (example: `order.yaml`).
-3. Add new secrets about database credentials to fop-secret-vault service(only for production).
 
 ## License
 
-[Your License]
+[MIT License](LICENSE)
